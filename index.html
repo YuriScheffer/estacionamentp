@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Estacionamento</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Alternar as Telas -->
+        <header class="navbar">
+            <h1>Controle de Estacionamento</h1>
+            <nav>
+                <button onclick="VagaController.navegar('cadastro')" id="nav-cadastro" class="nav-btn active">Cadastrar Reserva</button>
+                <button onclick="VagaController.navegar('cadastradas')" id="nav-cadastradas" class="nav-btn">Vagas Cadastradas</button>
+                <button onclick="VagaController.navegar('disponiveis')" id="nav-disponiveis" class="nav-btn">Vagas Disponíveis</button>
+            </nav>
+        </header>
+
+        <!-- TELA 1 -->
+        <main id="tela-cadastro" class="tela active">
+            <div class="card">
+                <h2>Cadastro de Reserva de Vaga</h2>
+                <form id="form-reserva">
+                    <div class="form-group">
+                        <label for="nomeProprietario">Nome do proprietário:</label>
+                        <input type="text" id="nomeProprietario">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="numeroApartamento">Número do apartamento:</label>
+                            <input type="number" id="numeroApartamento">
+                        </div>
+                        <div class="form-group">
+                            <label for="blocoApartamento">Bloco do apartamento:</label>
+                            <input type="text" id="blocoApartamento">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="modeloVeiculo">Modelo do veículo:</label>
+                            <input type="text" id="modeloVeiculo">
+                        </div>
+                        <div class="form-group">
+                            <label for="corVeiculo">Cor do veículo:</label>
+                            <input type="text" id="corVeiculo">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="placaVeiculo">Placa do veículo:</label>
+                            <input type="text" id="placaVeiculo">
+                        </div>
+                        <div class="form-group">
+                            <label for="numeroVaga">Número da vaga de estacionamento (1 a 30):</label>
+                            <input type="number" id="numeroVaga" min="1" max="30">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Salvar Reserva</button>
+                </form>
+            </div>
+        </main>
+
+        <!-- TELA 2 -->
+        <main id="tela-cadastradas" class="tela">
+            <div class="card wide">
+                <h2>Vagas de Estacionamento Cadastradas</h2>
+                <div class="table-container">
+                    <table id="tabela-vagas">
+                        <thead>
+                            <tr>
+                                <th>Proprietário</th>
+                                <th>Apto / Bloco</th>
+                                <th>Veículo</th>
+                                <th>Cor</th>
+                                <th>Placa</th>
+                                <th>Vaga</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+        <!-- TELA 3 -->
+        <main id="tela-disponiveis" class="tela">
+            <div class="card">
+                <h2>Vagas Disponíveis</h2>
+                <p class="subtitulo">Selecione uma vaga livre para preencher automaticamente o formulário de cadastro.</p>
+                <div id="grid-disponiveis" class="vagas-grid">
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/VagaModel.js"></script>
+    <script src="js/VagaView.js"></script>
+    <script src="js/VagaController.js"></script>
+</body>
+</html>
